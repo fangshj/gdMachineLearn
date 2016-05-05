@@ -1,4 +1,4 @@
-#include "LinearRegression.h"
+#include "../include/LinearRegression.h"
 
 #include <iostream>
 #include <fstream>
@@ -7,19 +7,14 @@
 #include <sstream>
 #include <cmath>
 #include <cstring>
-#include <windows.h>
+#include <ctime>
 
 using namespace std;
 
 string getTime() {
-    SYSTEMTIME sys;
-    GetLocalTime(&sys);
-
-    stringstream strstr;
-    strstr << sys.wMonth << " " << sys.wDay << " " << sys.wHour;
-    string strMonth, strDay, StrHour;
-    strstr >> strMonth >> strDay >> StrHour;
-    string timeNow = "Month" + strMonth + "Day" + strDay + "Hour" + StrHour;
+    time_t rawtime = time(NULL);
+    char *date = ctime(&rawtime);
+    string timeNow(date);
     return timeNow;
 }
 

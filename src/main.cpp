@@ -9,7 +9,7 @@
  */
 #include <iostream>
 #include <string>
-#include "LinearRegression.h"
+#include "../include/LinearRegression.h"
 
 using namespace std;
 
@@ -17,10 +17,10 @@ int main()
 {
     LinearRegression lr;
 
-    lr.setParaFileName(string("parameters17.txt"));
+    lr.setParaFileName(string("../data/parameters17.txt"));
     lr.readParameters();
-    lr.readData(string("test.csv"));
-    lr.calTestFile();
+    lr.readData(string("../data/train.csv"));
 
+    cout << lr.calMsv() << endl;
     return 0;
 }
